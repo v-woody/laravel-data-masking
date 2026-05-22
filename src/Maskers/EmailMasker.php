@@ -1,8 +1,8 @@
 <?php
 
-namespace JamieWood\DataMasking\Maskers;
+namespace VWoody\DataMasking\Maskers;
 
-use JamieWood\DataMasking\Contracts\Masker;
+use VWoody\DataMasking\Contracts\Masker;
 
 class EmailMasker implements Masker
 {

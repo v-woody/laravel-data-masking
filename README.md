@@ -5,7 +5,7 @@ Automatically mask sensitive fields in Eloquent model serialisation, API resourc
 ## Requirements
 
 - PHP 8.2 or higher
-- Laravel 10, 11, or 12
+- Laravel 10, 11, 12, or 13
 
 ## Installation
 
@@ -38,10 +38,10 @@ Masking rules can be defined in three ways, applied in priority order:
 Add an attribute directly to a model property. No other configuration is needed.
 
 ```php
-use JamieWood\DataMasking\Concerns\HasMaskedAttributes;
-use JamieWood\DataMasking\Attributes\MaskEmail;
-use JamieWood\DataMasking\Attributes\MaskPhone;
-use JamieWood\DataMasking\Attributes\MaskName;
+use VWoody\DataMasking\Concerns\HasMaskedAttributes;
+use VWoody\DataMasking\Attributes\MaskEmail;
+use VWoody\DataMasking\Attributes\MaskPhone;
+use VWoody\DataMasking\Attributes\MaskName;
 
 class User extends Model
 {
@@ -68,10 +68,10 @@ $user->toArray();    // ['email' => 'j****@*******.com', ...]
 Implement `MasksFields` and return a list of field definitions. Each entry is either `'field:MaskerClass'` or just `'field'` (which uses `StringMasker` as the default).
 
 ```php
-use JamieWood\DataMasking\Concerns\HasMaskedAttributes;
-use JamieWood\DataMasking\Contracts\MasksFields;
-use JamieWood\DataMasking\Maskers\EmailMasker;
-use JamieWood\DataMasking\Maskers\PhoneMasker;
+use VWoody\DataMasking\Concerns\HasMaskedAttributes;
+use VWoody\DataMasking\Contracts\MasksFields;
+use VWoody\DataMasking\Maskers\EmailMasker;
+use VWoody\DataMasking\Maskers\PhoneMasker;
 
 class User extends Model implements MasksFields
 {
@@ -94,9 +94,9 @@ Define masking rules per model in `config/data-masking.php`. Useful when you can
 ```php
 'models' => [
     App\Models\User::class => [
-        'email'       => \JamieWood\DataMasking\Maskers\EmailMasker::class,
-        'phone'       => \JamieWood\DataMasking\Maskers\PhoneMasker::class,
-        'card_number' => \JamieWood\DataMasking\Maskers\CardNumberMasker::class,
+        'email'       => \VWoody\DataMasking\Maskers\EmailMasker::class,
+        'phone'       => \VWoody\DataMasking\Maskers\PhoneMasker::class,
+        'card_number' => \VWoody\DataMasking\Maskers\CardNumberMasker::class,
     ],
 ],
 ```
@@ -106,7 +106,7 @@ Define masking rules per model in `config/data-masking.php`. Useful when you can
 Create a class implementing the `Masker` contract to define your own masking logic.
 
 ```php
-use JamieWood\DataMasking\Contracts\Masker;
+use VWoody\DataMasking\Contracts\Masker;
 
 class NationalInsuranceMasker implements Masker
 {
@@ -127,7 +127,7 @@ public string $ni_number;
 Or use `CustomMasker` inline for one-off programmatic use:
 
 ```php
-use JamieWood\DataMasking\Maskers\CustomMasker;
+use VWoody\DataMasking\Maskers\CustomMasker;
 
 $masker = new CustomMasker(fn (string $value) => str_repeat('*', strlen($value)));
 $masker->mask('secret'); // '******'
@@ -152,7 +152,7 @@ Note: `CustomMasker` requires a `Closure` and cannot be resolved from the contai
 Extend `MaskedJsonResource` instead of `JsonResource` to apply masking automatically when your model is serialised through an API resource.
 
 ```php
-use JamieWood\DataMasking\Resources\MaskedJsonResource;
+use VWoody\DataMasking\Resources\MaskedJsonResource;
 
 class UserResource extends MaskedJsonResource
 {
@@ -174,7 +174,7 @@ Add the `MaskingTap` to any logging channel in `config/logging.php`:
     'stack' => [
         'driver' => 'stack',
         'channels' => ['single'],
-        'tap' => [\JamieWood\DataMasking\Log\MaskingTap::class],
+        'tap' => [\VWoody\DataMasking\Log\MaskingTap::class],
     ],
 ],
 ```
@@ -183,9 +183,9 @@ Then define which context fields to mask in `config/data-masking.php`:
 
 ```php
 'log_fields' => [
-    'email'      => \JamieWood\DataMasking\Maskers\EmailMasker::class,
-    'ip_address' => \JamieWood\DataMasking\Maskers\IpAddressMasker::class,
-    'password'   => \JamieWood\DataMasking\Maskers\StringMasker::class,
+    'email'      => \VWoody\DataMasking\Maskers\EmailMasker::class,
+    'ip_address' => \VWoody\DataMasking\Maskers\IpAddressMasker::class,
+    'password'   => \VWoody\DataMasking\Maskers\StringMasker::class,
 ],
 ```
 
@@ -217,7 +217,7 @@ Gate::define('view-unmasked-data', fn (User $user) => $user->isAdmin());
 Wrap any code in `DataMasking::unmasked()` to disable masking for the duration of that callback, regardless of gate state.
 
 ```php
-use JamieWood\DataMasking\Facades\DataMasking;
+use VWoody\DataMasking\Facades\DataMasking;
 
 $rawData = DataMasking::unmasked(fn () => $user->toArray());
 ```

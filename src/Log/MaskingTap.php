@@ -1,6 +1,6 @@
 <?php
 
-namespace JamieWood\DataMasking\Log;
+namespace VWoody\DataMasking\Log;
 
 use Illuminate\Log\Logger;
 

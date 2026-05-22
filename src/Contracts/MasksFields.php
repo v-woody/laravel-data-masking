@@ -1,6 +1,6 @@
 <?php
 
-namespace JamieWood\DataMasking\Contracts;
+namespace VWoody\DataMasking\Contracts;
 
 interface MasksFields
 {

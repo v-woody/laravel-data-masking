@@ -1,6 +1,6 @@
 <?php
 
-namespace JamieWood\DataMasking\Attributes;
+namespace VWoody\DataMasking\Attributes;
 
 use Attribute;
 

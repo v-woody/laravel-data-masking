@@ -1,9 +1,9 @@
 <?php
 
-namespace JamieWood\DataMasking\Attributes;
+namespace VWoody\DataMasking\Attributes;
 
 use Attribute;
-use JamieWood\DataMasking\Maskers\PhoneMasker;
+use VWoody\DataMasking\Maskers\PhoneMasker;
 
 #[Attribute(Attribute::TARGET_PROPERTY)]
 class MaskPhone extends Mask

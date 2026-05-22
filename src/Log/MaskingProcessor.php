@@ -1,8 +1,8 @@
 <?php
 
-namespace JamieWood\DataMasking\Log;
+namespace VWoody\DataMasking\Log;
 
-use JamieWood\DataMasking\Contracts\Masker;
+use VWoody\DataMasking\Contracts\Masker;
 use Monolog\LogRecord;
 use Monolog\Processor\ProcessorInterface;
 

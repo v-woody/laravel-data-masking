@@ -1,9 +1,9 @@
 <?php
 
-namespace JamieWood\DataMasking\Attributes;
+namespace VWoody\DataMasking\Attributes;
 
 use Attribute;
-use JamieWood\DataMasking\Maskers\NameMasker;
+use VWoody\DataMasking\Maskers\NameMasker;
 
 #[Attribute(Attribute::TARGET_PROPERTY)]
 class MaskName extends Mask

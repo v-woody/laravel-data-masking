@@ -1,10 +1,10 @@
 <?php
 
-namespace JamieWood\DataMasking\Facades;
+namespace VWoody\DataMasking\Facades;
 
 use Closure;
 use Illuminate\Support\Facades\Facade;
-use JamieWood\DataMasking\DataMaskingService;
+use VWoody\DataMasking\DataMaskingService;
 
 /**
  * @method static mixed unmasked(Closure $callback)

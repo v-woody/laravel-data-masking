@@ -1,12 +1,12 @@
 <?php
 
-namespace JamieWood\DataMasking;
+namespace VWoody\DataMasking;
 
 use Illuminate\Support\Arr;
-use JamieWood\DataMasking\Attributes\Mask;
-use JamieWood\DataMasking\Contracts\Masker;
-use JamieWood\DataMasking\Contracts\MasksFields;
-use JamieWood\DataMasking\Maskers\StringMasker;
+use VWoody\DataMasking\Attributes\Mask;
+use VWoody\DataMasking\Contracts\Masker;
+use VWoody\DataMasking\Contracts\MasksFields;
+use VWoody\DataMasking\Maskers\StringMasker;
 use ReflectionAttribute;
 use ReflectionClass;
 use ReflectionProperty;

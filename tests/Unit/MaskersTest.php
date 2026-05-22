@@ -1,11 +1,11 @@
 <?php
 
-use JamieWood\DataMasking\Maskers\EmailMasker;
-use JamieWood\DataMasking\Maskers\PhoneMasker;
-use JamieWood\DataMasking\Maskers\NameMasker;
-use JamieWood\DataMasking\Maskers\CardNumberMasker;
-use JamieWood\DataMasking\Maskers\IpAddressMasker;
-use JamieWood\DataMasking\Maskers\CustomMasker;
+use VWoody\DataMasking\Maskers\EmailMasker;
+use VWoody\DataMasking\Maskers\PhoneMasker;
+use VWoody\DataMasking\Maskers\NameMasker;
+use VWoody\DataMasking\Maskers\CardNumberMasker;
+use VWoody\DataMasking\Maskers\IpAddressMasker;
+use VWoody\DataMasking\Maskers\CustomMasker;
 
 // EmailMasker
 test('email masker masks local part and domain', function () {

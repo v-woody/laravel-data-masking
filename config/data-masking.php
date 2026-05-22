@@ -28,9 +28,9 @@ return [
     */
     'models' => [
         // App\Models\User::class => [
-        //     'email'       => \JamieWood\DataMasking\Maskers\EmailMasker::class,
-        //     'phone'       => \JamieWood\DataMasking\Maskers\PhoneMasker::class,
-        //     'card_number' => \JamieWood\DataMasking\Maskers\CardNumberMasker::class,
+        //     'email'       => \VWoody\DataMasking\Maskers\EmailMasker::class,
+        //     'phone'       => \VWoody\DataMasking\Maskers\PhoneMasker::class,
+        //     'card_number' => \VWoody\DataMasking\Maskers\CardNumberMasker::class,
         // ],
     ],
 
@@ -42,13 +42,13 @@ return [
     | Fields listed here will be masked automatically in any log context or
     | extra data. Add the MaskingTap to your logging channel to enable this.
     |
-    | In config/logging.php add: 'tap' => [\JamieWood\DataMasking\Log\MaskingTap::class]
+    | In config/logging.php add: 'tap' => [\VWoody\DataMasking\Log\MaskingTap::class]
     |
     */
     'log_fields' => [
-        // 'email'       => \JamieWood\DataMasking\Maskers\EmailMasker::class,
-        // 'password'    => \JamieWood\DataMasking\Maskers\StringMasker::class,
-        // 'ip_address'  => \JamieWood\DataMasking\Maskers\IpAddressMasker::class,
+        // 'email'       => \VWoody\DataMasking\Maskers\EmailMasker::class,
+        // 'password'    => \VWoody\DataMasking\Maskers\StringMasker::class,
+        // 'ip_address'  => \VWoody\DataMasking\Maskers\IpAddressMasker::class,
     ],
 
 ];

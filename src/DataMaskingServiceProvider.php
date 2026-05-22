@@ -1,10 +1,10 @@
 <?php
 
-namespace JamieWood\DataMasking;
+namespace VWoody\DataMasking;
 
 use Illuminate\Support\ServiceProvider;
-use JamieWood\DataMasking\DataMaskingService;
-use JamieWood\DataMasking\MaskingRegistry;
+use VWoody\DataMasking\DataMaskingService;
+use VWoody\DataMasking\MaskingRegistry;
 
 class DataMaskingServiceProvider extends ServiceProvider
 {

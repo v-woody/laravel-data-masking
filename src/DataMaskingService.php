@@ -1,10 +1,10 @@
 <?php
 
-namespace JamieWood\DataMasking;
+namespace VWoody\DataMasking;
 
 use Closure;
 use Illuminate\Support\Facades\Gate;
-use JamieWood\DataMasking\Contracts\Masker;
+use VWoody\DataMasking\Contracts\Masker;
 
 class DataMaskingService
 {

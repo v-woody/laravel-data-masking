@@ -1,8 +1,8 @@
 <?php
 
-namespace JamieWood\DataMasking\Concerns;
+namespace VWoody\DataMasking\Concerns;
 
-use JamieWood\DataMasking\DataMaskingService;
+use VWoody\DataMasking\DataMaskingService;
 
 trait HasMaskedAttributes
 {

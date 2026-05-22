@@ -1,10 +1,10 @@
 <?php
 
-namespace JamieWood\DataMasking\Maskers;
+namespace VWoody\DataMasking\Maskers;
 
 use Closure;
 use InvalidArgumentException;
-use JamieWood\DataMasking\Contracts\Masker;
+use VWoody\DataMasking\Contracts\Masker;
 
 class CustomMasker implements Masker
 {

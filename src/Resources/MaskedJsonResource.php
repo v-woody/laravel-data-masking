@@ -1,10 +1,10 @@
 <?php
 
-namespace JamieWood\DataMasking\Resources;
+namespace VWoody\DataMasking\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Request;
-use JamieWood\DataMasking\DataMaskingService;
+use VWoody\DataMasking\DataMaskingService;
 
 abstract class MaskedJsonResource extends JsonResource
 {

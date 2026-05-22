@@ -1,6 +1,6 @@
 <?php
 
-use JamieWood\DataMasking\DataMaskingServiceProvider;
+use VWoody\DataMasking\DataMaskingServiceProvider;
 
 uses(
     Orchestra\Testbench\TestCase::class,

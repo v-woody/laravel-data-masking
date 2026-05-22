@@ -3,14 +3,14 @@
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Gate;
-use JamieWood\DataMasking\Attributes\MaskEmail;
-use JamieWood\DataMasking\Attributes\MaskPhone;
-use JamieWood\DataMasking\Concerns\HasMaskedAttributes;
-use JamieWood\DataMasking\Contracts\MasksFields;
-use JamieWood\DataMasking\DataMaskingService;
-use JamieWood\DataMasking\Maskers\EmailMasker;
-use JamieWood\DataMasking\Maskers\PhoneMasker;
-use JamieWood\DataMasking\MaskingRegistry;
+use VWoody\DataMasking\Attributes\MaskEmail;
+use VWoody\DataMasking\Attributes\MaskPhone;
+use VWoody\DataMasking\Concerns\HasMaskedAttributes;
+use VWoody\DataMasking\Contracts\MasksFields;
+use VWoody\DataMasking\DataMaskingService;
+use VWoody\DataMasking\Maskers\EmailMasker;
+use VWoody\DataMasking\Maskers\PhoneMasker;
+use VWoody\DataMasking\MaskingRegistry;
 
 // Helper models for tests
 class UserWithAttributes extends Model

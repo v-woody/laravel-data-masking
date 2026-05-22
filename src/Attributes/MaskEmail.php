@@ -1,9 +1,9 @@
 <?php
 
-namespace JamieWood\DataMasking\Attributes;
+namespace VWoody\DataMasking\Attributes;
 
 use Attribute;
-use JamieWood\DataMasking\Maskers\EmailMasker;
+use VWoody\DataMasking\Maskers\EmailMasker;
 
 #[Attribute(Attribute::TARGET_PROPERTY)]
 class MaskEmail extends Mask
