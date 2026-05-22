@@ -49,7 +49,9 @@ class VerifyMaskingCommand extends Command
         );
 
         $this->newLine();
-        $this->comment('Total: '.count($rows).' field(s) will be masked.');
+
+        $count = count($rows);
+        $this->comment("Total: {$count} field(s) will be masked.");
 
         return self::SUCCESS;
     }

@@ -236,6 +236,34 @@ composer test
 composer lint
 ```
 
+## Artisan Commands
+
+### data-masking:verify
+
+Inspect which fields will be masked on a given model and which masker and source applies to each.
+
+```bash
+php artisan data-masking:verify "App\Models\User"
+```
+
+Example output:
+
+```
+Masking rules for [App\Models\User]:
+
++---------+------------------------------------------+-----------+
+| Field   | Masker                                   | Source    |
++---------+------------------------------------------+-----------+
+| email   | VWoody\DataMasking\Maskers\EmailMasker   | attribute |
+| phone   | VWoody\DataMasking\Maskers\PhoneMasker   | attribute |
+| ni      | App\Maskers\NationalInsuranceMasker      | config    |
++---------+------------------------------------------+-----------+
+
+Total: 3 field(s) will be masked.
+```
+
+The Source column tells you where the rule came from: `attribute` (PHP attribute on the property), `interface` (the `MasksFields` interface), or `config` (the config file).
+
 ## Contributing
 
 Contributions are welcome. Please follow these steps:

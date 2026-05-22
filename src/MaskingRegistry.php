@@ -36,17 +36,13 @@ class MaskingRegistry
     {
         $className = is_string($target) ? $target : $target::class;
 
-        $maskers = [];
-
-        $maskers = array_merge($maskers, $this->resolveFromConfig($className));
+        $maskers = $this->resolveFromConfig($className);
 
         if (is_object($target) && $target instanceof MasksFields) {
             $maskers = array_merge($maskers, $this->resolveFromInterface($target));
         }
 
-        $maskers = array_merge($maskers, $this->resolveFromAttributes($className));
-
-        return $maskers;
+        return array_merge($maskers, $this->resolveFromAttributes($className));
     }
 
     /** @return array<string, Masker> */
