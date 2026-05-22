@@ -28,7 +28,7 @@ class EmailMasker implements Masker
             return '*';
         }
 
-        return $localPart[0] . str_repeat('*', $length - 1);
+        return $localPart[0].str_repeat('*', $length - 1);
     }
 
     private function maskDomain(string $domain): string
@@ -41,6 +41,6 @@ class EmailMasker implements Masker
         $tld = substr($domain, $dotPosition);
         $domainName = substr($domain, 0, $dotPosition);
 
-        return str_repeat('*', strlen($domainName)) . $tld;
+        return str_repeat('*', strlen($domainName)).$tld;
     }
 }

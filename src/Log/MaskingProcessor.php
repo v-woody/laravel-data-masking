@@ -2,14 +2,14 @@
 
 namespace VWoody\DataMasking\Log;
 
-use VWoody\DataMasking\Contracts\Masker;
 use Monolog\LogRecord;
 use Monolog\Processor\ProcessorInterface;
+use VWoody\DataMasking\Contracts\Masker;
 
 class MaskingProcessor implements ProcessorInterface
 {
     /**
-     * @param array<string, string> $fieldMaskers  field name => masker class
+     * @param  array<string, string>  $fieldMaskers  field name => masker class
      */
     public function __construct(
         private readonly array $fieldMaskers,

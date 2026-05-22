@@ -2,8 +2,8 @@
 
 namespace VWoody\DataMasking\Resources;
 
-use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 use VWoody\DataMasking\DataMaskingService;
 
 abstract class MaskedJsonResource extends JsonResource

@@ -25,6 +25,6 @@ class NameMasker implements Masker
             return $part;
         }
 
-        return $part[0] . str_repeat('*', $length - 1);
+        return $part[0].str_repeat('*', $length - 1);
     }
 }

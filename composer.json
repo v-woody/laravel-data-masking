@@ -29,7 +29,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "VWoody\\DataMasking\\Tests\\": "tests/"
+            "Tests\\": "tests/"
         }
     },
     "scripts": {

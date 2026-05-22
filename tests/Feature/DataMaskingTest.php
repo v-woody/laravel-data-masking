@@ -35,8 +35,8 @@ class UserWithInterface extends Model implements MasksFields
     public function maskedFields(): array
     {
         return [
-            'email:' . EmailMasker::class,
-            'phone:' . PhoneMasker::class,
+            'email:'.EmailMasker::class,
+            'phone:'.PhoneMasker::class,
         ];
     }
 }
@@ -48,7 +48,7 @@ class AuthUser extends Authenticatable
 
 // MaskingRegistry tests
 test('registry resolves maskers from php attributes', function () {
-    $registry = new MaskingRegistry();
+    $registry = new MaskingRegistry;
 
     $maskers = $registry->resolveFor(UserWithAttributes::class);
 
@@ -58,16 +58,16 @@ test('registry resolves maskers from php attributes', function () {
 });
 
 test('registry resolves maskers from interface', function () {
-    $registry = new MaskingRegistry();
+    $registry = new MaskingRegistry;
 
-    $user = new UserWithInterface();
+    $user = new UserWithInterface;
     $maskers = $registry->resolveFor($user);
 
     expect($maskers)->toHaveKeys(['email', 'phone']);
 });
 
 test('registry resolves maskers from config', function () {
-    $registry = new MaskingRegistry();
+    $registry = new MaskingRegistry;
 
     $registry->setConfigRules([
         UserWithAttributes::class => [
@@ -81,7 +81,7 @@ test('registry resolves maskers from config', function () {
 });
 
 test('attributes take priority over config rules', function () {
-    $registry = new MaskingRegistry();
+    $registry = new MaskingRegistry;
 
     $registry->setConfigRules([
         UserWithAttributes::class => [

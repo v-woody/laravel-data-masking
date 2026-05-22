@@ -3,20 +3,19 @@
 namespace VWoody\DataMasking;
 
 use Illuminate\Support\ServiceProvider;
-use VWoody\DataMasking\DataMaskingService;
-use VWoody\DataMasking\MaskingRegistry;
+use VWoody\DataMasking\Commands\VerifyMaskingCommand;
 
 class DataMaskingServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/data-masking.php',
+            __DIR__.'/../config/data-masking.php',
             'data-masking'
         );
 
         $this->app->singleton(MaskingRegistry::class, function () {
-            $registry = new MaskingRegistry();
+            $registry = new MaskingRegistry;
 
             $registry->setConfigRules(config('data-masking.models', []));
 
@@ -32,9 +31,13 @@ class DataMaskingServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        $this->commands([
+            VerifyMaskingCommand::class,
+        ]);
+
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../config/data-masking.php' => config_path('data-masking.php'),
+                __DIR__.'/../config/data-masking.php' => config_path('data-masking.php'),
             ], 'data-masking-config');
         }
     }

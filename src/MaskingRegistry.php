@@ -3,13 +3,13 @@
 namespace VWoody\DataMasking;
 
 use Illuminate\Support\Arr;
+use ReflectionAttribute;
+use ReflectionClass;
+use ReflectionProperty;
 use VWoody\DataMasking\Attributes\Mask;
 use VWoody\DataMasking\Contracts\Masker;
 use VWoody\DataMasking\Contracts\MasksFields;
 use VWoody\DataMasking\Maskers\StringMasker;
-use ReflectionAttribute;
-use ReflectionClass;
-use ReflectionProperty;
 
 class MaskingRegistry
 {
@@ -116,6 +116,34 @@ class MaskingRegistry
         $this->resolvedMaskers[$maskerClass] = $masker;
 
         return $masker;
+    }
+
+    /**
+     * Returns a map of field name => ['masker' => Masker, 'source' => string] for the given object or class.
+     *
+     * @return array<string, array{masker: Masker, source: string}>
+     */
+    public function resolveWithSources(object|string $target): array
+    {
+        $className = is_string($target) ? $target : $target::class;
+
+        $results = [];
+
+        foreach ($this->resolveFromConfig($className) as $field => $masker) {
+            $results[$field] = ['masker' => $masker, 'source' => 'config'];
+        }
+
+        if (is_object($target) && $target instanceof MasksFields) {
+            foreach ($this->resolveFromInterface($target) as $field => $masker) {
+                $results[$field] = ['masker' => $masker, 'source' => 'interface'];
+            }
+        }
+
+        foreach ($this->resolveFromAttributes($className) as $field => $masker) {
+            $results[$field] = ['masker' => $masker, 'source' => 'attribute'];
+        }
+
+        return $results;
     }
 
     /**

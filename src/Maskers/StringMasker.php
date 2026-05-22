@@ -14,6 +14,6 @@ class StringMasker implements Masker
             return '*';
         }
 
-        return $value[0] . str_repeat('*', $length - 1);
+        return $value[0].str_repeat('*', $length - 1);
     }
 }

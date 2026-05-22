@@ -16,7 +16,7 @@ class PhoneMasker implements Masker
         }
 
         $lastFour = substr($digitsOnly, -4);
-        $maskedDigits = str_repeat('*', $digitCount - 4) . $lastFour;
+        $maskedDigits = str_repeat('*', $digitCount - 4).$lastFour;
 
         return $this->reformat($maskedDigits, $value);
     }

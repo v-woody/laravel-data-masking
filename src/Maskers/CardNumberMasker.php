@@ -16,7 +16,7 @@ class CardNumberMasker implements Masker
         }
 
         $lastFour = substr($digitsOnly, -4);
-        $maskedDigits = str_repeat('*', $length - 4) . $lastFour;
+        $maskedDigits = str_repeat('*', $length - 4).$lastFour;
 
         return $this->reformat($maskedDigits, $value);
     }
