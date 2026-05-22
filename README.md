@@ -260,7 +260,7 @@ Open an issue on GitHub. Include a description of the problem, the Laravel and P
 
 ## Security
 
-If you discover a security vulnerability, please report it privately by emailing jamie@example.com rather than opening a public issue. Do not disclose the details publicly until a fix has been released.
+If you discover a security vulnerability, please report it privately by emailing jamie.woodruff@proton.me rather than opening a public issue. Do not disclose the details publicly until a fix has been released.
 
 ## Licence
 
