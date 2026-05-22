@@ -10,7 +10,7 @@ Automatically mask sensitive fields in Eloquent model serialisation, API resourc
 ## Installation
 
 ```bash
-composer require jamiewood/laravel-data-masking
+composer require v-woody/laravel-data-masking
 ```
 
 The service provider and facade are registered automatically via Laravel's package discovery.
